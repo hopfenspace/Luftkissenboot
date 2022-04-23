@@ -16,9 +16,9 @@ module RingUndBodenplatte(Verschiebung,Radius){
                difference(){
     translate([0,Verschiebung,0]){ //DER Ring+ Bodenplatte
         Ring(Radius);
-        Bodenplatte(Radius,Gesamtbreite,hoeheBodenplatte);
+      //  Bodenplatte(Radius,Gesamtbreite,hoeheBodenplatte);
         
-          Stuetzen(Radius);
+     //     Stuetzen(Radius);
        
     };
        Haltepin(RuderPosition*Ringradius/70,(Ringradius-Ringdicke-hoeheBodenplatte)*2,pinDicke*1.1);
