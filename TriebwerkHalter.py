@@ -32,7 +32,7 @@ def screw_holder(width,height):
 
 
 d = union()(
-    trapetz(20,15,10,10),
+    #trapetz(20,15,10,10),
     translate([pipeRadius,-screw_width/2,0])(
         screw_holder(screw_width,screw_height)
     ),
@@ -47,14 +47,14 @@ d = union()(
     ),
     difference()(
         pipe(pipeRadius,5,pipe_height),
-        translate([-pipeRadius,0,pipe_height])(
-            rotate([180,0,45])(
-                cylinder(r1=15,r2=10,h=10,segments=4)
+        translate([-pipeRadius-2,0,pipe_height-10])(
+            rotate([0,0,45])(
+                cylinder(r1=7.5,r2=5,h=10,segments=4)
             )
         ),
-        translate([pipeRadius,0,pipe_height])(
-            rotate([180,0,45])(
-                cylinder(r1=15,r2=10,h=10,segments=4)
+        translate([pipeRadius+2,0,pipe_height-10])(
+            rotate([0,0,45])(
+                cylinder(r1=7.5,r2=5,h=10,segments=4)
             )
         )
     )
@@ -62,4 +62,4 @@ d = union()(
 
 
 
-scad_render_to_file(d, 'triebwerk.scad', file_header = '$fn = 500;')
+scad_render_to_file(d, 'triebwerk.scad', file_header = '$fn = 1000;')
