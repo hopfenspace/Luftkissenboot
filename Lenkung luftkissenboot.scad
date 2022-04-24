@@ -33,16 +33,34 @@ module RingUndBodenplatte(Verschiebung,Radius){
         };//Loch für Mittleres Ruder
            union(){
                intersection(){
-                    translate([0,Verschiebung,0]){ //DER Ring+ Bodenplatte
+                    translate([0,Verschiebung,0]){ 
                             Ring(Radius-0.75);
+                    };              
+                       translate([0,-Gesamtbreite+15,+Ringradius-Ringdicke]){//oberes Puzzle
+                            Puzzle();
+                        };
+                };
+                intersection(){
+                    translate([0,Verschiebung,0]){ 
+                            Ring(Radius);
                     };   
-                   translate([0,-Gesamtbreite+15,+Ringradius-Ringdicke]){
-                        Puzzle();
+                    union(){
+                        translate([+Ringradius+Ringdicke,-Gesamtbreite+15,0]){//rechtes Puzzel
+                           rotate([0,90,0]){
+                            Puzzle();
+                           }
+                        };
+                        translate([-Ringradius-Ringdicke,-Gesamtbreite+15,0]){//linkes Puzzel
+                           rotate([0,90,0]){
+                            Puzzle();
+                           }
+                        };
                     };
                 };
-                translate([0,-Gesamtbreite+15,-Ringradius-Ringdicke]){
+                translate([0,-Gesamtbreite+15,-Ringradius-Ringdicke]){//unteres Puzzle
                     Puzzle();
                 };
+              
             };
     };
 }   
